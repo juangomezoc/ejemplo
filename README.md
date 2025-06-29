@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo Inbasik</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 1rem; background: #f9f9f9; }
+    header { text-align: center; padding: 1rem; background: #222; color: #fff; }
+    input, select { padding: 0.5rem; font-size: 1rem; margin-bottom: 1rem; width: 100%; max-width: 400px; }
+    .producto { background: #fff; border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .producto h3 { margin-top: 0.5rem; }
+    .precio { font-weight: bold; color: #444; }
+    .codigo { font-size: 0.9rem; color: #777; }
+    .producto img { width: 500px; height: 500px; object-fit: cover; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Catálogo Inbasik - Temporada 2</h1>
+    <input type="text" id="buscador" placeholder="Buscar por nombre o código..." onkeyup="filtrarProductos()">
+  </header>
+  <main id="lista-productos">
+    <!-- Productos -->
+    <div class="producto">
+      <img src="web.jpg" alt="Camiseta Oversize Negro">
+      <h3>Camiseta Oversize Color Negro</h3>
+      <p class="codigo">Código: OV 1</p>
+      <p class="precio">Precio: $40.000 (1 unidad)</p>
+    </div>
+    <div class="producto">
+      <img src="web.jpg" alt="Camiseta Oversize Blanco">
+      <h3>Camiseta Oversize Color Blanco</h3>
+      <p class="codigo">Código: OV 2</p>
+      <p class="precio">Precio: $40.000 (1 unidad)</p>
+    </div>
+    <div class="producto">
+      <img src="web.jpg" alt="Urban Fit Negro">
+      <h3>Urban Fit Color Negro</h3>
+      <p class="codigo">Código: URB 01</p>
+      <p class="precio">Precio: $55.000 (1 unidad)</p>
+    </div>
+    <div class="producto">
+      <img src="web.jpg" alt="Drop Terry Blanco">
+      <h3>Drop Terry Oversize Blanco</h3>
+      <p class="codigo">Código: 33001</p>
+      <p class="precio">Precio: $50.000 (1 unidad)</p>
+    </div>
+    <div class="producto">
+      <img src="web.jpg" alt="Buzo Oversize Negro">
+      <h3>Buzo Oversize Color Negro</h3>
+      <p class="codigo">Código: BOV1</p>
+      <p class="precio">Precio: $65.000 (1 unidad)</p>
+    </div>
+    <div class="producto">
+      <img src="web.jpg" alt="Hoodie Acid Wash Azul Petróleo">
+      <h3>Hoodie Acid Wash Azul Petróleo</h3>
+      <p class="codigo">Código: HDAW02</p>
+      <p class="precio">Precio: $110.000 (1 unidad)</p>
+    </div>
+    <!-- Más productos aquí... -->
+  </main>
+
+  <script>
+    function filtrarProductos() {
+      const input = document.getElementById('buscador').value.toLowerCase();
+      const productos = document.querySelectorAll('.producto');
+      productos.forEach(prod => {
+        const texto = prod.textContent.toLowerCase();
+        prod.style.display = texto.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
